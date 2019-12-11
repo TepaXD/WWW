@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/CustomNavbar";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Message from "./components/Messages";
+import Message from "./components/MessagesC";
 
 //constructor to initialize state
 class App extends Component {
