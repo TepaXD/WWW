@@ -62,8 +62,8 @@ body {
 	border-color: transparent;
 	border-bottom-color: pink;
 }
-.message_container .new_post .usernamefield {
-}
+
+.message_container .new_post .usernamefield {}
 
 .message_container .new_post {
 	border: 3px solid pink;
@@ -75,6 +75,7 @@ body {
 	color: black;
 	align-items: center;
 }
+
 .form_container {
 	margin-left: 3px;
 	margin-right: 3px;
