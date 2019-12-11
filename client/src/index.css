@@ -32,7 +32,6 @@ body {
 	margin-top: 20px;
 	border-radius: 8px;
 	color: black;
-	align-items: center;
 }
 
 .message:hover {
@@ -46,7 +45,7 @@ body {
 	display: inline;
 }
 
-.post {
+.message .post {
 	font-size: 15px;
 	word-wrap: break-word;
 	white-space: normal;
@@ -57,4 +56,27 @@ body {
 
 .post_auth {
 	overflow: hidden;
+}
+
+.message_container .new_post .postfield {
+	border-color: transparent;
+	border-bottom-color: pink;
+}
+.message_container .new_post .usernamefield {
+}
+
+.message_container .new_post {
+	border: 3px solid pink;
+	background: whitesmoke;
+	width: 500px;
+	height: 250px;
+	margin-top: 20px;
+	border-radius: 8px;
+	color: black;
+	align-items: center;
+}
+.form_container {
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-top: 3px;
 }

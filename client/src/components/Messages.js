@@ -3,12 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NewPost from './functions/Post';
 import { Container, Row, Col } from 'react-grid-system';
 import { useSelector } from 'react-redux';
+import Form from 'react-bootstrap/Form';
 
 class Message extends React.Component {
 	state = {
 		posts: [],
 		filtered_posts: [],
 		author: '',
+		new_post: '',
 	};
 
 	storeFetch = () => {
@@ -37,9 +39,30 @@ class Message extends React.Component {
 		}
 	}
 
+	handlePostChange(e) {
+		this.setState({ new_post: e.target.value });
+	}
+
 	render() {
+		const { max_char } = 50;
 		return (
 			<Container className="message_container">
+				<Col className="new_post">
+					<Form className="form_container">
+						<Form.Group>
+							<Form.Control placeholder="Username" className="usernamefield"></Form.Control>
+						</Form.Group>
+						<Form.Group>
+							<Form.Control
+								placeholder="Post"
+								className="postfield"
+								maxLength="50"
+								onChange={this.handlePostChange}
+							></Form.Control>
+							<Form.Text className="text-muted">Characters: {max_char}</Form.Text>
+						</Form.Group>
+					</Form>
+				</Col>
 				{!this.state.filtered_posts ? (
 					<NewPost author="Waiting for posts..." message="" />
 				) : (
