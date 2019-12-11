@@ -1,0 +1,60 @@
+body {
+	width: 100%;
+	height: auto;
+	background-color: #171717;
+	color: #000;
+	line-height: 1.6;
+	font-family: sans-serif;
+	min-width: 400px;
+}
+
+.bg {
+	position: fixed;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: contain;
+	background: rgb(221, 221, 221);
+	overflow: scroll;
+}
+
+.message_container {
+	height: 100%;
+	margin-left: 37%;
+	margin-right: 37%;
+}
+
+.message {
+	border: 3px solid pink;
+	background: whitesmoke;
+	width: 500px;
+	height: 150px;
+	margin-top: 20px;
+	border-radius: 8px;
+	color: black;
+	align-items: center;
+}
+
+.message:hover {
+	box-shadow: 6px 6px 29px -14px black;
+}
+
+.poster {
+	color: black;
+	font-size: 25px;
+	text-overflow: ellipsis;
+	display: inline;
+}
+
+.post {
+	font-size: 15px;
+	word-wrap: break-word;
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-left: 10px;
+}
+
+.post_auth {
+	overflow: hidden;
+}

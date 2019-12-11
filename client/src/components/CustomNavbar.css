@@ -1,0 +1,62 @@
+nav.navbar,
+.navbar-default {
+	background-color: whitesmoke;
+	border-bottom: 5px solid pink;
+	border-radius: 0;
+	height: 80px;
+	width: 100%;
+	z-index: 9999;
+}
+
+.navbar-default .navbar-text {
+	color: black;
+	padding-right: 30px;
+	padding-left: 15px;
+}
+
+.navbar-default .navbar-text:hover {
+	color: pink;
+	padding-right: 30px;
+}
+
+.navbar.navbar-default .navbar-brand {
+	color: black;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: transparent;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: transparent;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	margin-bottom: 3px;
+}
+
+.btn {
+	background: white;
+	border-color: black;
+	margin-left: 10px;
+	display: inline-block;
+	margin-top: 2px;
+}
+
+.btn:hover {
+	background: pink;
+	color: white;
+}
+
+.input {
+	background: white;
+	border: 1px solid black;
+	margin-left: 10px;
+	display: inline-block;
+	border-radius: 3px;
+	text-indent: 10px;
+}
