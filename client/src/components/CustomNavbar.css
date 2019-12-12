@@ -1,22 +1,17 @@
 .navbar-default {
-	background-color: whitesmoke;
-	border-bottom: 5px solid pink;
+	background-color: lightgreen;
+	border-bottom: 5px solid green;
 	border-radius: 0;
 	height: 80px;
 	width: 100%;
 	z-index: 9999;
+	display: flex;
 }
 
 .navbar-default .navbar-text {
 	color: black;
 	padding-right: 30px;
 	padding-left: 15px;
-}
-
-
-.navbar-default .navbar-text:hover {
-	color: pink;
-	padding-right: 30px;
 }
 
 .navbar.navbar-default .navbar-brand {
@@ -43,12 +38,10 @@
 	background: white;
 	border-color: black;
 	margin-left: 10px;
-	display: inline-block;
-	margin-top: 2px;
 }
 
 .btn:hover {
-	background: pink;
+	background: rgb(14, 139, 14);
 	color: white;
 }
 
@@ -59,4 +52,6 @@
 	display: inline-block;
 	border-radius: 3px;
 	text-indent: 10px;
+	flex: 0;
+	width: 150px;
 }

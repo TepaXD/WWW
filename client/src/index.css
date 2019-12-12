@@ -1,11 +1,8 @@
 body {
 	width: 100%;
 	height: auto;
-	background-color: #171717;
-	color: #000;
 	line-height: 1.6;
 	font-family: sans-serif;
-	min-width: 400px;
 }
 
 .bg {
@@ -14,35 +11,56 @@ body {
 	width: 100%;
 	height: 100%;
 	background-size: contain;
-	background: rgb(221, 221, 221);
-	overflow: scroll;
+	background: darkslategray;
 }
 
-.message_container {
+.message-container-background .message-container {
+	overflow: scroll;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 70vh;
+	margin-top: 5px;
+}
+
+::-webkit-scrollbar {
+	width: 0px;
+	background: transparent;
+}
+
+.message-container-background {
 	height: 100%;
-	margin-left: 37%;
-	margin-right: 37%;
+	margin-top: 20px;
+	background: darkslategray;
+	overflow: hidden;
+	margin-left: 30px;
+}
+
+.message-grid {
+	display: grid;
+	margin: 0 auto;
+	grid-gap: 1rem;
+	max-width: 1500px;
 }
 
 .message {
-	border: 3px solid pink;
-	background: whitesmoke;
-	width: 500px;
+	background: lightgreen;
 	height: 150px;
-	margin-top: 20px;
-	border-radius: 8px;
 	color: black;
+	width: 350px;
+	text-align: center;
+	padding-right: 2rem;
 }
 
 .message:hover {
 	box-shadow: 6px 6px 29px -14px black;
+	background: rgb(129, 212, 129);
 }
 
 .poster {
-	color: black;
+	color: rgba(0, 128, 0, 0.253);
 	font-size: 25px;
 	text-overflow: ellipsis;
-	display: inline;
+	text-align: center;
 }
 
 .message .post {
@@ -52,30 +70,104 @@ body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	margin-left: 10px;
+	text-align: left;
 }
 
-.post_auth {
+.post-auth {
 	overflow: hidden;
+	display: inline-block;
+	border: 1px solid black;
+	width: 300px;
+	border-radius: 5px;
 }
 
-.message_container .new_post .postfield {
-	border-color: transparent;
-	border-bottom-color: pink;
+.post-auth:focus {
+	border: 2px solid lightgreen;
 }
 
-.message_container .new_post {
-	border: 3px solid pink;
-	background: whitesmoke;
-	width: 500px;
-	height: 250px;
-	margin-top: 20px;
-	border-radius: 8px;
+.postfield {
+	border-color: black;
+	width: 300px;
+	border-radius: 5px;
+}
+
+.submitbtn {
+	border-color: black;
+	width: 300px;
+	border-radius: 5px;
+	background: lightgreen;
+}
+.submitbtn:hover {
+	border-color: black;
+	width: 300px;
+	border-radius: 5px;
+	background: green;
+	color: white;
+}
+
+.form-container {
 	color: black;
-	align-items: center;
+	padding-top: 3px;
+	padding-bottom: 40px;
+	text-align: center;
+	padding-left: 5px;
 }
 
-.form_container {
-	margin-left: 3px;
-	margin-right: 3px;
+.post-form {
+	border-bottom: 3px solid white;
+	background: darkslategray;
+	width: 800px;
+	height: 190px;
+	z-index: 9999;
+	display: inline-block;
 	margin-top: 3px;
+	margin-bottom: 10px;
+}
+
+@media (max-width: 1199px) {
+	.message-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.message {
+		width: 280px;
+	}
+}
+
+@media (max-width: 991px) {
+	.message-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.message {
+		width: 300px;
+	}
+}
+
+@media (max-width: 767px) {
+	.message-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.message {
+		width: 235px;
+	}
+
+	.poster {
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 600px) {
+	.message-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.message {
+		width: 100%;
+	}
+}
+@media (min-width: 992px) {
+	.message-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
