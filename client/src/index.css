@@ -63,8 +63,6 @@ body {
 	border-bottom-color: pink;
 }
 
-.message_container .new_post .usernamefield {}
-
 .message_container .new_post {
 	border: 3px solid pink;
 	background: whitesmoke;

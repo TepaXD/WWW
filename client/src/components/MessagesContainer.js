@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NewPost from './object/Post';
+import NewPost from './functions/Post';
 import { Container, Row, Col } from 'react-grid-system';
 import { useSelector } from 'react-redux';
 import Form from 'react-bootstrap/Form';
@@ -56,6 +56,7 @@ class Message extends React.Component {
 			post: this.state.new_post,
 		});
 		let form = document.getElementById('form');
+		alert(this.state.posts);
 		e.preventDefault();
 		form.reset();
 		this.setState({ new_author: '' });
