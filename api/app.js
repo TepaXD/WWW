@@ -11,11 +11,11 @@ var posts = require('./routes/posts');
 var mongoose = require('mongoose');
 
 var app = express();
-/*var mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
+var mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
 	mongoURLLabel = '';
 
 // For local dev
-// var mongoURL = 'mongodb://localhost:27017/demodb';
+var mongoURL = 'mongodb://localhost:27017/demodb';
 
 if (mongoURL == null) {
 	var mongoHost, mongoPort, mongoDatabase, mongoPassword, mongoUser;
@@ -59,7 +59,7 @@ mongoose.connect(mongoURL);
 mongoose.Promise = Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-*/
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
