@@ -67,7 +67,6 @@ class Message extends React.Component {
 		const current_char_auth = this.state.new_author.length;
 		return (
 			<div className="body">
-				<MessageCont />
 				<div className="bg">
 					<div className="container">
 						<div className="row">
