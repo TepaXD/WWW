@@ -2,8 +2,12 @@
 	background-color: lightgreen;
 	border-bottom: 5px solid green;
 	border-radius: 0;
-
 	z-index: 9999;
+	display: flex;
+}
+
+.nav-container {
+	justify-content: space-around;
 }
 
 .my-navbar .navbar-text {
@@ -14,10 +18,8 @@
 
 .navbar.my-navbar .navbar-brand {
 	color: black;
-}
-
-.my-navbar .navbar-brand {
-	color: white;
+	letter-spacing: 3px;
+	font-family: 'Comfortaa', cursive;
 }
 
 .my-navbar .navbar-toggle {

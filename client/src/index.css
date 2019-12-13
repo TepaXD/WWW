@@ -79,25 +79,29 @@
 .post-auth {
 	overflow: hidden;
 	display: inline-block;
-	border: 1px solid black;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid black;
 	width: 300px;
-	border-radius: 5px;
+	color: white;
 }
 
 .post-auth:focus {
 	outline: transparent;
-	border: 3px solid lightgreen;
+	border-bottom: 1px solid lightgreen;
 }
 
 .postfield:focus {
 	outline: transparent;
-	border: 3px solid lightgreen;
+	border-bottom: 1px solid lightgreen;
 }
 
 .postfield {
-	border-color: black;
+	border: none;
+	background-color: transparent;
+	border-bottom: 1px solid black;
 	width: 300px;
-	border-radius: 5px;
+	color: white;
 }
 
 .submitbtn {

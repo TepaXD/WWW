@@ -1,4 +1,4 @@
-const usernameReducer = (state = 'test', action) => {
+const usernameReducer = (state = 'halloooo :DDD', action) => {
 	return state;
 };
 

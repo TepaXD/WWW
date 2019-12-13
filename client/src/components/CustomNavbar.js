@@ -23,7 +23,7 @@ class CustomNavbar extends Component {
 	render() {
 		return (
 			<Router>
-				<div>
+				<div className="nav-container">
 					<Navbar sticky="top" expand="md" className="navbar my-navbar">
 						<Navbar.Brand className="navbar-brand">
 							<img src="./assets/Avocado_logo.png" width="80px" />
@@ -31,7 +31,7 @@ class CustomNavbar extends Component {
 						</Navbar.Brand>
 						<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 						<Navbar.Collapse id="responsive-navbar-nav">
-							<Nav className="ml-auto">
+							<Nav>
 								<SearchForm parentGetSearchable={this.getSearchable} />
 							</Nav>
 						</Navbar.Collapse>
