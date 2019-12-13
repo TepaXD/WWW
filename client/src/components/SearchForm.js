@@ -40,7 +40,8 @@ class SearchForm extends Component {
 							placeholder="Enter username"
 							onChange={this.handleChange}
 						></Form.Control>
-
+					</NavItem>
+					<NavItem>
 						<input type="submit" className="btn" type="submit" value="Search posts!"></input>
 					</NavItem>
 				</Form>

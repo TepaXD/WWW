@@ -1,37 +1,31 @@
-.navbar-default {
+.my-navbar {
 	background-color: lightgreen;
 	border-bottom: 5px solid green;
 	border-radius: 0;
-	height: 80px;
-	width: 100%;
+
 	z-index: 9999;
-	display: flex;
 }
 
-.navbar-default .navbar-text {
+.my-navbar .navbar-text {
 	color: black;
 	padding-right: 30px;
 	padding-left: 15px;
 }
 
-.navbar.navbar-default .navbar-brand {
+.navbar.my-navbar .navbar-brand {
 	color: black;
 }
 
-.navbar-default .navbar-nav > li > a {
-	color: transparent;
-}
-
-.navbar-default .navbar-brand {
+.my-navbar .navbar-brand {
 	color: white;
 }
 
-.navbar-default .navbar-toggle {
-	border-color: transparent;
+.my-navbar .navbar-toggle {
+	background-color: transparent;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
-	margin-bottom: 3px;
+.my-navbar .icon-bar {
+	background-color: turquoise;
 }
 
 .btn {
@@ -52,6 +46,5 @@
 	display: inline-block;
 	border-radius: 3px;
 	text-indent: 10px;
-	flex: 0;
 	width: 150px;
 }

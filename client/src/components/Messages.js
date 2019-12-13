@@ -65,52 +65,54 @@ class Message extends React.Component {
 		const current_char = this.state.new_post.length;
 		const current_char_auth = this.state.new_author.length;
 		return (
-			<div className="bg">
-				<div className="container">
-					<div className="row">
-						<div className="col">
-							<Container className="message-container-background">
-								<Row>
-									<Col className="post-form">
-										<Form className="form-container" onSubmit={this.handlePostSubmit} id="form">
-											<Form.Group>
-												<input
-													placeholder="Username"
-													className="post-auth"
-													maxLength="20"
-													onChange={this.handleAuthorChange}
-												></input>
-											</Form.Group>
-											<Form.Group>
-												<textarea
-													placeholder="Post"
-													className="postfield"
-													maxLength="50"
-													onChange={this.handlePostChange}
-												></textarea>
-												<Form.Text className="text-muted">
-													Remaining characters on post:{' '}
-													{max_char - current_char + ' ' + '|' + ' '}
-													Remaining characters on username:{' '}
-													{max_char_auth - current_char_auth}
-												</Form.Text>
-											</Form.Group>
-											<input type="submit" value="Create post" className="submitbtn"></input>
-										</Form>
-									</Col>
-								</Row>
-								<div className="message-container">
-									<div className="message-grid">
-										{!this.state.filtered_posts ? (
-											<NewPost author="Loading author..." message="Loading posts..." />
-										) : (
-											this.state.filtered_posts.map(post => (
-												<NewPost author={post.name} message={post.post} />
-											))
-										)}
+			<div className="body">
+				<div className="bg">
+					<div className="container">
+						<div className="row">
+							<div className="col">
+								<Container className="message-container-background">
+									<Row>
+										<Col className="post-form">
+											<Form className="form-container" onSubmit={this.handlePostSubmit} id="form">
+												<Form.Group>
+													<input
+														placeholder="Username"
+														className="post-auth"
+														maxLength="20"
+														onChange={this.handleAuthorChange}
+													></input>
+												</Form.Group>
+												<Form.Group>
+													<textarea
+														placeholder="Post"
+														className="postfield"
+														maxLength="50"
+														onChange={this.handlePostChange}
+													></textarea>
+													<Form.Text className="text-muted">
+														Remaining characters on post:{' '}
+														{max_char - current_char + ' ' + '|' + ' '}
+														Remaining characters on username:{' '}
+														{max_char_auth - current_char_auth}
+													</Form.Text>
+												</Form.Group>
+												<input type="submit" value="Create post" className="submitbtn"></input>
+											</Form>
+										</Col>
+									</Row>
+									<div className="message-container">
+										<div className="message-grid">
+											{!this.state.filtered_posts ? (
+												<NewPost author="Loading author..." message="Loading posts..." />
+											) : (
+												this.state.filtered_posts.map(post => (
+													<NewPost author={post.name} message={post.post} />
+												))
+											)}
+										</div>
 									</div>
-								</div>
-							</Container>
+								</Container>
+							</div>
 						</div>
 					</div>
 				</div>
