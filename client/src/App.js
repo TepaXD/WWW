@@ -3,28 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/CustomNavbar';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Message from './components/Messages';
+import Posts from './components/Posts';
 
 //constructor to initialize state
 class App extends Component {
-	state = {
-		searchable: '',
-	};
-
-	getSearchable = data => {
-		this.setState({ searchable: data });
-	};
-
-	constructor(props) {
-		super(props);
-		this.state = { apiResponse: '' };
-	}
-
 	render() {
 		return (
 			<Router>
-				<NavBar parentGetSearchable={this.getSearchable} />
-				<Message />
+				<NavBar />
+				<Posts />
 			</Router>
 		);
 	}

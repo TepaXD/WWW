@@ -7,19 +7,6 @@ import SearchForm from './SearchForm';
 import './CustomNavbar.css';
 
 class CustomNavbar extends Component {
-	state = {
-		searchable: '',
-	};
-
-	getSearchable = data => {
-		this.setState({ searchable: data });
-		this.sendData();
-	};
-
-	sendData = () => {
-		this.props.parentGetSearchable(this.state.searchable);
-	};
-
 	render() {
 		return (
 			<Router>
@@ -32,7 +19,7 @@ class CustomNavbar extends Component {
 						<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 						<Navbar.Collapse id="responsive-navbar-nav">
 							<Nav>
-								<SearchForm parentGetSearchable={this.getSearchable} />
+								<SearchForm />
 							</Nav>
 						</Navbar.Collapse>
 					</Navbar>

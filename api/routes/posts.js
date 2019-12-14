@@ -1,19 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-let posts = [];
+let post_array = [];
 
 router.get('/', function(req, res, next) {
-	res.json(posts);
+	res.json(post_array);
 });
 
 router.get('/', function(req, res, next) {
-	res.status(200).json({ posts });
+	res.status(200).json({ post_array });
 });
 
 router.post('/', function(req, res, next) {
 	const post = req.body.post;
-	posts.unshift(post);
+	post_array.unshift(post);
 	res.status(200).json({ post });
 });
 

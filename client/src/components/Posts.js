@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NewPost from './functions/Post';
 import { Container, Row, Col } from 'react-grid-system';
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import axios from './functions/axios';
-import MessageCont from './MessagesCont';
 
-class Message extends React.Component {
+class Posts extends React.Component {
 	state = {
 		posts: [],
 		filtered_posts: [],
@@ -57,7 +56,7 @@ class Message extends React.Component {
 			name: this.state.new_author,
 			post: this.state.new_post,
 		};
-		let message = await axios.post('/posts', { post: newpost });
+		await axios.post('/posts', { post: newpost });
 		this.forceUpdate();
 	}
 
@@ -123,4 +122,16 @@ class Message extends React.Component {
 	}
 }
 
-export default Message;
+/*const mapDispatchToProps = dispatch => {
+	return {
+		setFilter: () => dispatch(),
+	};
+};
+
+const mapStateToProp = state => {
+	return state;
+};
+
+const DefaultApp = connect(mapStateToProp, mapDispatchToProps)(Posts);*/
+
+export default Posts;

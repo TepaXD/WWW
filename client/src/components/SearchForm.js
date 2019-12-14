@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import NavItem from 'react-bootstrap/NavItem';
 import Form from 'react-bootstrap/Form';
-import { useSelector, useDispatch } from 'react-redux';
-import { author } from './actions/GetAuthor';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { updateFilter } from './actions/filterAuthor';
 
 class SearchForm extends Component {
 	state = {
@@ -18,16 +19,13 @@ class SearchForm extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.sendData();
+		const { updateFilter } = this.props;
+		updateFilter(this.state.author_typed);
 	}
 
 	handleChange(e) {
 		this.setState({ author_typed: e.target.value });
 	}
-
-	sendData = () => {
-		this.props.parentGetSearchable(this.state.author);
-	};
 
 	render() {
 		return (
@@ -50,4 +48,18 @@ class SearchForm extends Component {
 	}
 }
 
-export default SearchForm;
+const mapDispatchToProps = dispatch =>
+	bindActionCreators(
+		{
+			updateFilter,
+		},
+		dispatch
+	);
+
+const mapStateToProp = state => {
+	return state;
+};
+
+const DefaultApp = connect(mapStateToProp, mapDispatchToProps)(SearchForm);
+
+export default DefaultApp;
