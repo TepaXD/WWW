@@ -23,7 +23,8 @@ class Message extends React.Component {
 	}
 
 	async componentDidMount() {
-		const url = 'http://localhost:9000/posts';
+		//const url = 'http://localhost:9000/posts';
+		const url = 'http://avoback-avocado.rahtiapp.fi/posts';
 		const response = await fetch(url);
 		const data = await response.json();
 		this.setState({ posts: data });
