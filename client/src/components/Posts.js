@@ -2,7 +2,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NewPost from './functions/Post';
 import { Container, Row, Col } from 'react-grid-system';
-import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import axios from './functions/axios';
 
@@ -12,6 +11,7 @@ class Posts extends React.Component {
 		filtered_posts: [],
 		new_post: '',
 		new_author: '',
+		filter: '',
 	};
 
 	constructor(props) {
@@ -19,23 +19,30 @@ class Posts extends React.Component {
 		this.handlePostChange = this.handlePostChange.bind(this);
 		this.handlePostSubmit = this.handlePostSubmit.bind(this);
 		this.handleAuthorChange = this.handleAuthorChange.bind(this);
+		this.handleFilterSubmit = this.handleFilterSubmit.bind(this);
+		this.handleFilterChange = this.handleFilterChange.bind(this);
 	}
 
 	async componentDidMount() {
+		this.getPosts();
+	}
+
+	async getPosts() {
 		//const url = 'http://localhost:9000/posts';
 		const url = 'http://avoback-avocado.rahtiapp.fi/posts';
 		const response = await fetch(url);
 		const data = await response.json();
 		this.setState({ posts: data });
 		this.filterPosts(this.state.posts);
+		this.forceUpdate();
 	}
 
 	filterPosts(posts) {
-		let author = '';
+		let filter = this.state.filter;
 		let filtered_posts_temp = [];
-		if (author == null || author !== '') {
+		if (filter == null || filter !== '') {
 			filtered_posts_temp = posts.filter(function(el) {
-				return el.name.includes(author);
+				return el.name.includes(filter);
 			});
 			this.setState({ filtered_posts: filtered_posts_temp });
 		} else {
@@ -51,13 +58,23 @@ class Posts extends React.Component {
 		this.setState({ new_post: e.target.value });
 	}
 
+	handleFilterSubmit(e) {
+		e.preventDefault();
+		this.filterPosts(this.state.posts);
+	}
+
+	handleFilterChange(e) {
+		this.setState({ filter: e.target.value });
+	}
+
 	async handlePostSubmit(e) {
 		const newpost = {
 			name: this.state.new_author,
 			post: this.state.new_post,
 		};
 		await axios.post('/posts', { post: newpost });
-		this.forceUpdate();
+		e.preventDefault();
+		this.getPosts();
 	}
 
 	render() {
@@ -72,7 +89,21 @@ class Posts extends React.Component {
 						<div className="row">
 							<div className="col">
 								<Container className="message-container-background">
-									<Row>
+									<Row className="Row">
+										<Col className="post-form-filter">
+											<Form className="form-container-filter" onSubmit={this.handleFilterSubmit}>
+												<Form.Group>
+													<input
+														type="text"
+														className="post-auth"
+														placeholder="Filter"
+														onChange={this.handleFilterChange}
+													/>
+												</Form.Group>
+
+												<input type="submit" className="submitbtn" value="Filter posts" />
+											</Form>
+										</Col>
 										<Col className="post-form">
 											<Form className="form-container" onSubmit={this.handlePostSubmit} id="form">
 												<Form.Group>
@@ -91,13 +122,11 @@ class Posts extends React.Component {
 														onChange={this.handlePostChange}
 													></textarea>
 													<Form.Text className="text-muted">
-														Remaining characters on post:{' '}
-														{max_char - current_char + ' ' + '|' + ' '}
-														Remaining characters on username:{' '}
-														{max_char_auth - current_char_auth}
+														Post: {current_char} / {max_char} | Username:{' '}
+														{current_char_auth} / {max_char_auth}
 													</Form.Text>
 												</Form.Group>
-												<input type="submit" value="Create post" className="submitbtn"></input>
+												<input type="submit" value="Create post" className="submitbtn"></input>{' '}
 											</Form>
 										</Col>
 									</Row>
@@ -121,17 +150,5 @@ class Posts extends React.Component {
 		);
 	}
 }
-
-/*const mapDispatchToProps = dispatch => {
-	return {
-		setFilter: () => dispatch(),
-	};
-};
-
-const mapStateToProp = state => {
-	return state;
-};
-
-const DefaultApp = connect(mapStateToProp, mapDispatchToProps)(Posts);*/
 
 export default Posts;

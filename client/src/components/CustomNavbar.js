@@ -1,30 +1,36 @@
 import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import './palkki.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import SearchForm from './SearchForm';
-import './CustomNavbar.css';
+import { Link } from 'react-router-dom';
+import './styles/CustomNavbar.css';
+import NavItem from 'react-bootstrap/NavItem';
 
 class CustomNavbar extends Component {
 	render() {
 		return (
-			<Router>
-				<div className="nav-container">
-					<Navbar sticky="top" expand="md" className="navbar my-navbar">
-						<Navbar.Brand className="navbar-brand">
-							<img src="./assets/Avocado_logo.png" width="80px" />
-							Avocado
-						</Navbar.Brand>
-						<Navbar.Toggle aria-controls="responsive-navbar-nav" />
-						<Navbar.Collapse id="responsive-navbar-nav">
-							<Nav>
-								<SearchForm />
-							</Nav>
-						</Navbar.Collapse>
-					</Navbar>
-				</div>
-			</Router>
+			<Navbar sticky="top" expand="md" className="navbar my-navbar">
+				<Navbar.Brand className="navbar-brand">
+					<img src="./assets/Avocado_logo.png" width="80px" />
+					Avocado
+				</Navbar.Brand>
+				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
+				<Navbar.Collapse id="responsive-navbar-nav">
+					<Nav className="ml-auto">
+						<Nav className="nav-container">
+							<NavItem href="/" to="/">
+								<Link to="/" href="#" className="navbar-text">
+									Home
+								</Link>
+							</NavItem>
+							<NavItem href="/" to="/">
+								<Link to="/about" href="#" className="navbar-text">
+									About
+								</Link>
+							</NavItem>
+						</Nav>
+					</Nav>
+				</Navbar.Collapse>
+			</Navbar>
 		);
 	}
 }

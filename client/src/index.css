@@ -51,6 +51,7 @@
 	width: 350px;
 	text-align: center;
 	padding-right: 2rem;
+	overflow: scroll;
 }
 
 .message:hover {
@@ -125,6 +126,25 @@
 	padding-bottom: 40px;
 	text-align: center;
 	padding-left: 5px;
+}
+
+.form-container-filter {
+	color: black;
+	padding-top: 3px;
+	text-align: center;
+	padding-left: 5px;
+}
+
+.post-form-filter {
+	border-bottom: 3px solid white;
+	background: darkslategray;
+	width: 800px;
+	height: 195px;
+	padding-top: 102.5px;
+	z-index: 9999;
+	display: inline-block;
+	margin-top: 3px;
+	margin-bottom: 10px;
 }
 
 .post-form {
