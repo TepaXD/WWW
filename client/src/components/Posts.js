@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-grid-system';
 import Form from 'react-bootstrap/Form';
 import axios from './functions/axios';
 
+//View that's behind 'Home' and shows all the posts from backend
 class Posts extends React.Component {
 	state = {
 		posts: [],
@@ -27,9 +28,10 @@ class Posts extends React.Component {
 		this.getPosts();
 	}
 
+	//Gets posts from backend
 	async getPosts() {
 		//const url = 'http://localhost:9000/posts';
-		const url = 'http://avoback-avocado.rahtiapp.fi/posts';
+		const url = 'http://backend-avocado.rahtiapp.fi/posts';
 		const response = await fetch(url);
 		const data = await response.json();
 		this.setState({ posts: data });
@@ -37,6 +39,7 @@ class Posts extends React.Component {
 		this.forceUpdate();
 	}
 
+	//Function to filter the visible posts
 	filterPosts(posts) {
 		let filter = this.state.filter;
 		let filtered_posts_temp = [];
@@ -50,6 +53,7 @@ class Posts extends React.Component {
 		}
 	}
 
+	//Below are functions handling the change on input fields and submits on forms
 	handleAuthorChange(e) {
 		this.setState({ new_author: e.target.value });
 	}
@@ -67,14 +71,23 @@ class Posts extends React.Component {
 		this.setState({ filter: e.target.value });
 	}
 
+	//Setup the date and creating a newpost object to send to Express through Axios
 	async handlePostSubmit(e) {
+		const currenttime = new Date().toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric' });
+		const currentdate = new Date().toLocaleDateString();
+		const time = currenttime + ' / ' + currentdate;
+		if (this.state.new_author.length === 0 || this.state.new_post.length) {
+			alert('Please enter an username and post!');
+			return;
+		}
 		const newpost = {
 			name: this.state.new_author,
 			post: this.state.new_post,
+			id: this.state.posts.length,
+			time: time,
 		};
 		await axios.post('/posts', { post: newpost });
 		e.preventDefault();
-		this.getPosts();
 	}
 
 	render() {
@@ -136,7 +149,12 @@ class Posts extends React.Component {
 												<NewPost author="Loading author..." message="Loading posts..." />
 											) : (
 												this.state.filtered_posts.map(post => (
-													<NewPost author={post.name} message={post.post} />
+													<NewPost
+														author={post.name}
+														message={post.post}
+														key={post.id}
+														time={post.time}
+													/>
 												))
 											)}
 										</div>

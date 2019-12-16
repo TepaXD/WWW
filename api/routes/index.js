@@ -1,3 +1,5 @@
+// base index view thats' generated with express generator
+
 var express = require('express');
 var router = express.Router();
 

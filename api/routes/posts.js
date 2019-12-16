@@ -1,3 +1,5 @@
+// view that has all the posts stored
+
 var express = require('express');
 var router = express.Router();
 

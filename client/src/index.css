@@ -158,6 +158,12 @@
 	margin-bottom: 10px;
 }
 
+.message .time {
+	font-size: x-small;
+	text-align: right;
+	color: rgba(0, 128, 0, 0.253);
+}
+
 @media (max-width: 1199px) {
 	.message-grid {
 		grid-template-columns: repeat(3, 1fr);

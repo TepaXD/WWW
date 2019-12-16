@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 import './styles/CustomNavbar.css';
 import NavItem from 'react-bootstrap/NavItem';
-
+//Navbar for the app that is shown on all views
 class CustomNavbar extends Component {
 	render() {
 		return (
