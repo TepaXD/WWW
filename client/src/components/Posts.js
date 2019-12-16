@@ -43,7 +43,7 @@ class Posts extends React.Component {
 	filterPosts(posts) {
 		let filter = this.state.filter;
 		let filtered_posts_temp = [];
-		if (filter == null || filter !== '') {
+		if (filter !== null || filter !== '') {
 			filtered_posts_temp = posts.filter(function(el) {
 				return el.name.includes(filter);
 			});
@@ -76,10 +76,6 @@ class Posts extends React.Component {
 		const currenttime = new Date().toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric' });
 		const currentdate = new Date().toLocaleDateString();
 		const time = currenttime + ' / ' + currentdate;
-		if (this.state.new_author.length === 0 || this.state.new_post.length) {
-			alert('Please enter an username and post!');
-			return;
-		}
 		const newpost = {
 			name: this.state.new_author,
 			post: this.state.new_post,
